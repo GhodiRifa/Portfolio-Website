@@ -393,6 +393,48 @@
     .footer-orn-diamond { width: 5px; height: 5px; background: var(--gold); transform: rotate(45deg); opacity: .38; }
     .footer-orn-dot { width: 3px; height: 3px; background: var(--gold); border-radius: 50%; opacity: .3; }
 
+    /* ── PROJECTS ── */
+    #projects .proj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+    .proj-card {
+      background: rgba(255,255,255,.025);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 14px;
+      padding: 28px 26px;
+      display: flex; flex-direction: column; gap: 14px;
+      transition: border-color .25s, transform .25s, background .25s;
+      position: relative; overflow: hidden;
+    }
+    .proj-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 12%; right: 12%; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,169,110,.4), transparent);
+      border-radius: 99px;
+    }
+    .proj-card:hover { border-color: rgba(201,169,110,.35); transform: translateY(-4px); background: rgba(201,169,110,.03); }
+    .proj-card-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+    .proj-icon { width: 44px; height: 44px; border-radius: 10px; background: rgba(201,169,110,.1); border: 1px solid rgba(201,169,110,.2); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
+    .proj-title { font-size: 1rem; font-weight: 700; color: var(--white); line-height: 1.3; margin-bottom: 2px; }
+    .proj-year { font-size: .72rem; color: var(--gold); font-weight: 600; letter-spacing: .08em; }
+    .proj-desc { font-size: .87rem; line-height: 1.75; color: var(--gray-400); flex: 1; }
+    .proj-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+    .proj-tag {
+      font-size: .7rem; font-weight: 600; letter-spacing: .07em; text-transform: uppercase;
+      color: var(--gray-500); background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      padding: 4px 10px; border-radius: 99px;
+    }
+    .proj-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .78rem; font-weight: 600; color: var(--gold);
+      text-decoration: none; letter-spacing: .04em;
+      transition: opacity .2s;
+      margin-top: auto;
+    }
+    .proj-link:hover { opacity: .75; }
+    .proj-link svg { transition: transform .2s; }
+    .proj-link:hover svg { transform: translateX(3px); }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       nav {
@@ -458,6 +500,7 @@
   <div class="nav-brand">RIFA.</div>
   <ul class="nav-links">
     <li><a href="#objektif">Objektif</a></li>
+    <li><a href="#projects">Projects</a></li>
     <li><a href="#pengalaman">Pengalaman</a></li>
     <li><a href="#pendidikan">Pendidikan</a></li>
     <li><a href="#sertifikat">Sertifikat</a></li>
@@ -546,6 +589,63 @@
         <circle cx="12" cy="40" r="1.2" fill="#c9a96e" opacity=".6"/>
         <circle cx="52" cy="40" r="1.2" fill="#c9a96e" opacity=".6"/>
       </svg>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+<div class="divider-ornament" aria-hidden="true">
+  <div class="divider-orn-line"></div>
+  <div class="divider-orn-diamond"></div>
+  <div class="divider-orn-line"></div>
+</div>
+
+<!-- ── PROJECTS ── -->
+<section id="projects">
+  <div class="reveal">
+    <p class="section-label">Karya Saya</p>
+    <h2 class="section-title">Projects</h2>
+    <div class="deco-rule" aria-hidden="true">
+      <div class="deco-rule-line"></div>
+      <div class="deco-rule-dot"></div>
+      <div class="deco-rule-diamond"></div>
+      <div class="deco-rule-dot"></div>
+      <div class="deco-rule-line right"></div>
+    </div>
+    <div class="proj-grid">
+
+      <!-- ═══════════════════════════════════════════════════
+           CARA MENAMBAH / MENGEDIT PROJECT:
+           Duplikat salah satu blok .proj-card di bawah,
+           lalu ganti icon, judul, tahun, deskripsi, tag,
+           dan href link sesuai project kamu.
+           Jika tidak ada link, hapus seluruh tag <a class="proj-link">.
+      ═══════════════════════════════════════════════════ -->
+
+      <div class="proj-card">
+        <div class="proj-card-header">
+          <div class="proj-icon">️🥷🏻</div>
+          <div>
+            <div class="proj-title">SHADOW RUN: Cyber Ninja Chronicles</div>
+            <div class="proj-year">2026</div>
+          </div>
+        </div>
+        <p class="proj-desc">
+          Game berbasis .html yang saya buat sebagai project sampingan untuk menemani waktu luang saya.
+        </p>
+        <div class="proj-tags">
+          <span class="proj-tag">HTML</span>
+          <span class="proj-tag">CSS</span>
+          <span class="proj-tag">JavaScript</span>
+        </div>
+        <a class="proj-link" href="https://ghodirifa.github.io/-SHADOW-RUN-.html-game-project/ShadowRunRifa.html" target="_blank" rel="noopener">
+          Lihat Project
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+
     </div>
   </div>
 </section>
@@ -747,7 +847,7 @@ const FOTO_PENGALAMAN = [
       },
       {
         foto:    "https://i.ibb.co.com/29xvZqv/designs.png",          // ← ganti: "foto/freelance2.jpg"
-        caption: "Menuangkan dan mengaplikasikan ide-ide yang terlintas di kepala saya kedalam seni digital yang berupa: Photo Manipulation, Typography & Graphic Design. Karya-karya ini bisa anda cek di instagram saya @_rifa.stuff"
+        caption: "Menuangkan dan mengaplikasikan ide-ide yang terlintas di kepala saya kedalam seni digital yang berupa: Photo Manipulation, Typography & Graphic Design. Karya-karya ini bisa anda cek pada halaman instagram saya @_rifa.stuff"
       },
       {
         foto:    "https://i.ibb.co.com/C5zgnjC3/community.jpg",          // ← ganti: "foto/freelance3.jpg"
